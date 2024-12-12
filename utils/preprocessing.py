@@ -1,10 +1,11 @@
 import numpy as np
 import torch
 from torchvision import transforms
-from torch.utils.data import DataLoader, random_split
+from torch.utils.data import DataLoader
 from imblearn.over_sampling import RandomOverSampler
 import pandas as pd
 from sklearn.utils import shuffle
+from sklearn.model_selection import train_test_split
 
 class ReshapeAndScale:
     """
@@ -62,7 +63,6 @@ def oversample_data(x_data, y_data):
     DataFrame
         The oversampled data.
     """
-
     oversampler = RandomOverSampler(sampling_strategy='auto')
 
     x_data, y_data = oversampler.fit_resample(x_data.values.reshape(-1,1), y_data)
@@ -77,28 +77,28 @@ def oversample_data(x_data, y_data):
 
     return oversampled_data
 
-def split_data(dataset, train_split=0.8):
+def split_data(df, train_split=0.8):
     """
-    Split the data into training and validation sets.
+    Split the data into training and validation sets using train_test_split.
 
     Parameters
     ----------
-    data : DataFrame
-        The data to split.
-    train_size : float
+    df : pd.DataFrame
+        The data to split, should contain 'pixels' and 'emotion' columns.
+    train_split : float
         The proportion of the data to use for training. Default is 0.8.
 
     Returns
     -------
     tuple
-        A tuple containing the training and validation sets.
+        A tuple containing the training and validation sets as DataFrames.
     """
 
-    train_size = int(train_split * len(dataset))
-    val_size = len(dataset) - train_size
-    train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
+    # Split the DataFrame into train and validation sets
+    train_df, val_df = train_test_split(df, train_size=train_split, stratify=df['emotion'], random_state=42)
 
-    return train_dataset, val_dataset
+    return train_df, val_df
+
 
 
 def create_dataloaders(train_dataset, val_dataset, batch_size):
