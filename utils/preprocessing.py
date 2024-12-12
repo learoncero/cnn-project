@@ -77,10 +77,33 @@ def oversample_data(x_data, y_data):
 
     return oversampled_data
 
-
-def create_dataloaders(dataset, batch_size, train_split=0.8):
+def split_data(dataset, train_split=0.8):
     """
-    Splits the dataset into training and validation sets and creates DataLoaders.
+    Split the data into training and validation sets.
+
+    Parameters
+    ----------
+    data : DataFrame
+        The data to split.
+    train_size : float
+        The proportion of the data to use for training. Default is 0.8.
+
+    Returns
+    -------
+    tuple
+        A tuple containing the training and validation sets.
+    """
+
+    train_size = int(train_split * len(dataset))
+    val_size = len(dataset) - train_size
+    train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
+
+    return train_dataset, val_dataset
+
+
+def create_dataloaders(train_dataset, val_dataset, batch_size):
+    """
+    Creates DataLoaders.
 
     Parameters
     ----------
@@ -96,11 +119,8 @@ def create_dataloaders(dataset, batch_size, train_split=0.8):
     tuple
         A tuple containing the training and validation DataLoaders.
     """
-    train_size = int(train_split * len(dataset))
-    val_size = len(dataset) - train_size
-    train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
-
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
     return train_loader, val_loader
+
