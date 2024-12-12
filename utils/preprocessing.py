@@ -100,7 +100,6 @@ def split_data(df, train_split=0.8):
     return train_df, val_df
 
 
-
 def create_dataloaders(train_dataset, val_dataset, batch_size):
     """
     Creates DataLoaders.
