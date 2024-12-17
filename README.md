@@ -15,7 +15,7 @@ To explore and evaluate various CNN architectures, pooling strategies, and featu
 - **Augmentation**: Data augmentation techniques such as rotation, scaling, and flipping.
 - **Evaluation Metric**: Model accuracy on validation/test set.
 - **Loss Function**: `nn.CrossEntropyLoss()` for multi-class classification.
-- **Optimizer**: `optim.Adam` with a learning rate of `0.001` or `0.0001`.
+- **Optimizer**: `optim.Adam` or `optim.AdamW` with a learning rate of `0.001` or `0.0001`.
 - **Hardware**: GPU-enabled training environment (if available).
 
 ---
