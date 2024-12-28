@@ -66,7 +66,7 @@ To explore and evaluate various CNN architectures, pooling strategies, and featu
 ## Conclusion
 - **Optimal Model Configuration**:
     - **5 convolutional layers**
-    - **Avg Pooling** as the pooling strategy (???)
+    - **Avg Pooling** as the pooling strategy
     - **GeLU Activation Function** for improved performance.
     - **Data Augmentation** for improved generalization.
 - **Key Insight**: The choice of model architecture, pooling strategy, and activation function significantly impact the performance of emotion recognition models.
