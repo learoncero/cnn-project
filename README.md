@@ -47,11 +47,11 @@ To explore and evaluate various CNN architectures, pooling strategies, and featu
 
 ### 3. Other Techniques
 
-| **Technique**       | **Validation Accuracy** | **Notes**                                             | **Notebook**               |
-|---------------------|-------------------------|-------------------------------------------------------|----------------------------|
-| **Dilated Layers**  | 0.61                    | Added a dilation values to conv layers                | 8_Group17_DLProject.ipynb  |
-| **GeLU Function**   | 0.63                    | Implemented GeLU Activation Functions instead of ReLU | 9_Group17_DLProject.ipynb  |
-| **Residual Blocks** | 0.59                    |                                                       | 10_Group17_DLProject.ipynb |
+| **Technique**       | **Validation Accuracy** | **Notes**                                                                                                       | **Notebook**               |
+|---------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------|
+| **Dilated Layers**  | 0.61                    | Added a dilation values to conv layers                                                                          | 8_Group17_DLProject.ipynb  |
+| **GeLU Function**   | 0.63                    | Implemented GeLU Activation Functions instead of ReLU                                                           | 9_Group17_DLProject.ipynb  |
+| **Residual Blocks** | 0.59                    | Implemented residual connections to help with gradient flow and mitigate potential vanishing gradient problems. | 10_Group17_DLProject.ipynb |
 
 ### 4. Data Augmentation
 
