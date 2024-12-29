@@ -1,5 +1,6 @@
 import numpy as np
 import torch
+from PIL import Image
 from torchvision import transforms
 from torch.utils.data import DataLoader
 from imblearn.over_sampling import RandomOverSampler
@@ -17,17 +18,19 @@ class ReshapeAndScale:
         self.n_rows = n_rows
         self.n_cols = n_cols
 
-    def __call__(self, pixel_string):
-        # Reshape the flat pixel string into a 2D array
-        pixel_vals = np.array([float(val) for val in pixel_string.split()], dtype=np.float32)
-        image = pixel_vals.reshape(self.n_rows, self.n_cols)
+    def __call__(self, input_data):
+        # If input is a string, process as pixel string
+        if isinstance(input_data, str):
+            pixel_vals = np.array([float(val) for val in input_data.split()], dtype=np.float32)
+            image = pixel_vals.reshape(self.n_rows, self.n_cols) / 255.0
+            return torch.tensor(image, dtype=torch.float32).unsqueeze(0)  # Add channel dimension
 
-        # Scale the image to [0, 1]
-        image = image / 255.0
+        # If input is a PIL image, convert to tensor
+        elif isinstance(input_data, Image.Image):
+            return transforms.ToTensor()(input_data)
 
-        # Convert to a PyTorch tensor
-        return torch.tensor(image, dtype=torch.float32).unsqueeze(0) # add a channel dimension
-    
+        raise TypeError(f"Unsupported input type: {type(input_data)}")
+
 
 def load_data(data_path):
     """
