@@ -42,7 +42,7 @@ To explore and evaluate various CNN architectures, pooling strategies, and featu
 | **Pooling Type**           | **Validation Accuracy** | **Observations**                                                                                                                | **Notebook**                                                                                                                                                           |
 |----------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Max Pooling**            | 0.60                    | Preserves key features while reducing spatial dimensions effectively.                                                           | 2_Group17_DLProject.ipynb / 3_Group17_DLProject.ipynb / 4_Group17_DLProject.ipynb                                                                                      |
-| **Avg Pooling**            | 0.60                        | Smoother feature extraction.                                                                                                    | 5_Group17_DLProject.ipynb / 6_Group17_DLProject.ipynb / 7_Group17_DLProject.ipynb / 8_Group17_DLProject.ipynb / 9_Group17_DLProject.ipynb / 10_Group17_DLProject.ipynb |
+| **Avg Pooling**            | 0.62                        | Smoother feature extraction.                                                                                                    | 5_Group17_DLProject.ipynb / 6_Group17_DLProject.ipynb / 7_Group17_DLProject.ipynb / 8_Group17_DLProject.ipynb / 9_Group17_DLProject.ipynb / 10_Group17_DLProject.ipynb |
 
 
 ### 3. Other Techniques
@@ -57,7 +57,7 @@ To explore and evaluate various CNN architectures, pooling strategies, and featu
 
 | **Technique**                             | **Validation Accuracy** | **Notes**                                                                         | **Notebook**              |
 |-------------------------------------------|-------------------------|-----------------------------------------------------------------------------------|---------------------------|
-| **Generative Adversarial Networks (GAN)** |                         |                                                                                   | 6_Group17_DLProject.ipynb |
+| **Generative Adversarial Networks (GAN)** | 0.46                        |                                                                                   | 6_Group17_DLProject.ipynb |
 | **Augmentation**                          | 0.65                    | Augmented data (such as horizontal flip, crop, rotation) was added to the dataset | 7_Group17_DLProject.ipynb |
 
 
