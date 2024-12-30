@@ -37,8 +37,7 @@ ehthumbs.db
 Thumbs.db
 
 data
-<<<<<<< HEAD
 gan_weights
-=======
-gan_weights
->>>>>>> e77476f3f8c00e6b6f9b57315e9ea8dc6e9b427a
+
+gan_images.csv
+gan_images_300_epochs.csv
