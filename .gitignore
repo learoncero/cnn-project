@@ -39,5 +39,5 @@ Thumbs.db
 data
 gan_weights
 
-gan_images.csv
-gan_images_300_epochs.csv
+**/gan_images_300_epochs.csv
+**/gan_images.csv
